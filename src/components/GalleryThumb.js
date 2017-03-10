@@ -2,9 +2,6 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import CSSModules from 'react-css-modules'
 import styles from './GalleryThumb.css'
-import Author from './Author'
-import Date from './Date'
-import Location from './Location'
 import ResponsiveImage from './ResponsiveImage'
 
 function GalleryThumb ({ gallery }) {
@@ -19,11 +16,6 @@ function GalleryThumb ({ gallery }) {
           <div styleName="c-galleryThumb__title">{ gallery.fields.title }</div>
 
           { renderTags(gallery) }
-
-          <div className="u-marginBottomSmall u-flexHorizCenter">
-            <Date entry={ gallery.fields.date } />
-            <Location entry={ gallery.fields.location } />
-          </div>
 
         </figcaption>
       </figure>

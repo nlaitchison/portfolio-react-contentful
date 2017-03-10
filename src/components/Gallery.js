@@ -4,9 +4,6 @@ import styles from './Gallery.css'
 import ResponsiveImage from './ResponsiveImage'
 import { Link, browserHistory } from 'react-router'
 import Modal from 'react-modal'
-import Author from './Author'
-import Date from './Date'
-import Location from './Location'
 import ImageGallery from 'react-image-gallery'
 import { connectComponent } from '../store'
 
@@ -98,14 +95,8 @@ class Gallery extends React.Component {
             <Link to={'/'} styleName="c-gallery__close" className="o-btnClose" aria-label="Go back to all galleries">
               ✕
             </Link>
-            <Author author={ gallery.fields.author }></Author>
 
             { this.renderTags(gallery) }
-
-            <div className="u-marginBottomSmall u-flexHorizCenter">
-              <Date entry={ gallery.fields.date } />
-              <Location entry={ gallery.fields.location } />
-            </div>
           </div>
 
           <ul className="o-listThirds">
