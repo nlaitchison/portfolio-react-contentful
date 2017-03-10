@@ -29,6 +29,7 @@ class App extends React.Component {
               <span>Gallery App</span>
             </Link>
           </div>
+          <p>23 year old Lighting TD for Bron Animation in Vancouver, British Columbia</p>
           {
             (() => {
               if (this.props.app.authState === 'loading') {

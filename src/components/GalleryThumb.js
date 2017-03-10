@@ -7,37 +7,13 @@ import ResponsiveImage from './ResponsiveImage'
 function GalleryThumb ({ gallery }) {
   return (
     <div styleName="c-galleryThumb">
-      <figure styleName="c-galleryThumb__figure">
+      <figure styleName="c-galleryThumb__figure" data-filter={ gallery.fields.tags }>
         <Link to={`/gallery/${gallery.sys.id}`} styleName="c-galleryThumb__imageContainer">
           <ResponsiveImage src={ gallery.fields.coverImage.fields.file.url } alt={ `Open Gallery ${gallery.fields.title}` }/>
         </Link>
-
-        <figcaption styleName="c-galleryThumb__caption">
-          <div styleName="c-galleryThumb__title">{ gallery.fields.title }</div>
-
-          { renderTags(gallery) }
-
-        </figcaption>
       </figure>
-      <div className="u-flexHorizCenter u-marginTopAuto u-marginBottomDefault u-paddingHorizDefault">
-        <Link to={`/gallery/${gallery.sys.id}`} className="o-btnPrimary">View gallery</Link>
-      </div>
     </div>
   )
-}
-
-function renderTags (gallery) {
-  if (gallery.fields.tags) {
-    return (
-      <ul className="o-listReset test">
-      {
-        gallery.fields.tags.map(
-          (entry, index) => (<li key={index} className="o-tag">{ entry }</li>)
-        )
-      }
-      </ul>
-    )
-  }
 }
 
 GalleryThumb.propTypes = { gallery: PropTypes.object }

@@ -92,11 +92,10 @@ class Gallery extends React.Component {
         <div>
           <div styleName="c-gallery__header">
             <h1 styleName="c-gallery__headline">{ gallery.fields.title }</h1>
+            <p>{ gallery.fields.description }</p>
             <Link to={'/'} styleName="c-gallery__close" className="o-btnClose" aria-label="Go back to all galleries">
               ✕
             </Link>
-
-            { this.renderTags(gallery) }
           </div>
 
           <ul className="o-listThirds">
@@ -108,7 +107,6 @@ class Gallery extends React.Component {
                       <Link to={`/gallery/${gallery.sys.id}/image/${entry.fields.photo.sys.id}`} >
                         <ResponsiveImage src={ entry.fields.photo.fields.file.url } alt={entry.fields.title} />
                       </Link>
-                      <div styleName="c-gallery__modalOpenTitle">{ entry.fields.title }</div>
                     </div>
                   </li>
                 )
@@ -134,19 +132,6 @@ class Gallery extends React.Component {
     }
   }
 
-  renderTags (gallery) {
-    if (gallery.fields.tags) {
-      return (
-        <ul className="o-listReset">
-        {
-          gallery.fields.tags.map(
-            (entry, index) => (<li key={index} className="o-tag">{ entry }</li>)
-          )
-        }
-        </ul>
-      )
-    }
-  }
 }
 
 Gallery.propTypes = {
